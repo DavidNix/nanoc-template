@@ -31,6 +31,7 @@ GEM
       rb-inotify (>= 0.9)
     lumberjack (1.0.4)
     method_source (0.8.2)
+    minitest (4.7.5)
     nanoc (3.6.7)
       cri (~> 2.3)
     pry (0.9.12.4)
@@ -58,6 +59,7 @@ DEPENDENCIES
   guard-nanoc
   haml (~> 4)
   kramdown
+  minitest
   nanoc
   sass
   uglifier

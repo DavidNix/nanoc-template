@@ -1,7 +1,7 @@
 class AssetLinker
 	attr_accessor :type, :items, :timestamp
 
-	def initialize(type, nanoc_items, timestamp=CacheBust.timestamp)
+	def initialize(type, nanoc_items=nil, timestamp=CacheBust.timestamp)
 		@type = type
 		@items = nanoc_items
 		@timestamp = timestamp
@@ -10,14 +10,16 @@ class AssetLinker
 	def links
 		filepaths.map { |path| link_for(path) }.join
 	end
+
+	def filename(nanoc_item)
+		nanoc_item.identifier.chop + timestamp + '.' + type
+	end
 		
 	private
 
 	def filepaths
 		filtered_items = @items.select { |item| item.identifier =~ /^\/#{type}/ }
-		filtered_items.map do |item|
-			item.identifier.chop + timestamp + '.' + type
-		end
+		filtered_items.map { |item| filename(item) }
 	end
 
 	def link_for(filepath)
