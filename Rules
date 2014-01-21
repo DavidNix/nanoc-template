@@ -13,11 +13,16 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-CacheBust.clean_caches! 'css'
+CacheBust.clean_caches! 'css', 'js'
 timestamp = CacheBust.timestamp
+
 
 compile '/css/*/' do
 	filter :sass
+end
+
+compile '/js/*/' do
+	filter :uglify_js
 end
 
 compile '*' do
@@ -29,8 +34,13 @@ compile '*' do
   end
 end
 
+
 route '/css/*/' do
 	item.identifier.chop + timestamp + '.css'
+end
+
+route '/js/*/' do
+	item.identifier.chop + timestamp + '.js'
 end
 
 route '/images/*/' do

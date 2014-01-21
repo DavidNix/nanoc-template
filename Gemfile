@@ -6,3 +6,4 @@ gem "kramdown"
 gem "haml", '~> 4'
 gem "guard-nanoc"
 gem "sass"
+gem "uglifier"
