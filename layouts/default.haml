@@ -4,10 +4,10 @@
 	%meta{"http-equiv" => "X-UA-Compatible", content:  "IE=edge,chrome=1"}
 	%meta{name: "viewport", content: "width=device-width, initial-scale=1"}
 	%title= @item[:title]
-	= stylesheet_links
-	= javascript_links
 	/[if lte IE 8]
 		%script{src: "http://html5shim.googlecode.com/svn/trunk/html5.js"}
+	= stylesheet_links
+	= javascript_links
 		
 %body
 	

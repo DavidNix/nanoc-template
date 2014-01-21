@@ -36,11 +36,11 @@ end
 
 
 route '/css/*/' do
-	item.identifier.chop + timestamp + '.css'
+	AssetLinker.new('css').filename(item)
 end
 
 route '/js/*/' do
-	item.identifier.chop + timestamp + '.js'
+	AssetLinker.new('js').filename(item)
 end
 
 route '/images/*/' do

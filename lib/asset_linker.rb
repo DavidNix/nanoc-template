@@ -8,7 +8,7 @@ class AssetLinker
 	end
 
 	def links
-		filepaths.map { |path| link_for(path) }.join
+		filepaths.map { |path| link_for(path) }.join("\n")
 	end
 
 	def filename(nanoc_item)
@@ -27,7 +27,7 @@ class AssetLinker
 			when 'css'
 				%Q{<link rel="stylesheet" href=#{filepath} type="text/css">}
 			when 'js'
-				%Q{<script type="text/javascript" src=#{filepath}>}
+				%Q{<script type="text/javascript" src=#{filepath}></script>}
 			else
 				raise "Type not supported"
 		end

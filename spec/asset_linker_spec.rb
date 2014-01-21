@@ -37,7 +37,7 @@ describe AssetLinker do
 
 		it "returns correct filtered link for js" do
 			linker = AssetLinker.new('js', @items, @timestamp)
-			linker.links.must_equal %Q{<script type="text/javascript" src=/js/another4321.js>}
+			linker.links.must_equal %Q{<script type="text/javascript" src=/js/another4321.js></script>}
 		end
 
 		it "raises error for invalid type" do
