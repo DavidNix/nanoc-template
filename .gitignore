@@ -4,3 +4,5 @@
 /tmp
 crash.log
 .sass-cache
+.env
+/output

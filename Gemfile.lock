@@ -9,6 +9,7 @@ GEM
     colored (1.2)
     cri (2.4.1)
       colored (>= 1.2)
+    dotenv (0.9.0)
     execjs (2.0.2)
     ffi (1.9.3)
     formatador (0.2.4)
@@ -50,12 +51,14 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    yuicompressor (1.3.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   adsf
+  dotenv
   guard-nanoc
   haml (~> 4)
   kramdown
@@ -63,3 +66,4 @@ DEPENDENCIES
   nanoc
   sass
   uglifier
+  yuicompressor

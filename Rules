@@ -13,16 +13,21 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+require 'dotenv'
+Dotenv.load
+
 CacheBust.clean_caches! 'css', 'js'
 timestamp = CacheBust.timestamp
 
 
 compile '/css/*/' do
-	filter :sass
+	puts "Production is #{production?}"
+	filter :sass, syntax: :scss
+	filter :yui_compressor, type: :css if production?
 end
 
 compile '/js/*/' do
-	filter :uglify_js
+	filter :uglify_js if production?
 end
 
 compile '*' do
@@ -52,5 +57,6 @@ route '*' do
 	# Write item with identifier /foo/ to /foo/index.html
 	item.identifier + 'index.html'
 end
+
 
 layout '*', :haml 
