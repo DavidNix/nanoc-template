@@ -1,4 +1,17 @@
 # A Little Nanoc Template
+Especially for hosting a static site on S3.
+
+## Setup
+
+You probably want to change the .ruby-gemset and .ruby-version if using rvm.
+
+Do the ole `bundle install`.
+
+See the config instructions for the [s3_website gem](https://github.com/laurilehmijoki/s3_website)
+
+Change `s3_website.yml` to your config.
+
+Run `3_website cfg apply`
 
 ### Featuring
 
@@ -8,7 +21,7 @@ Auto-inserting of asset links into `<head>`.
 
 Minitest integration via `rake test`.
 
-Update the `.env` and use `rake upload` to upload your site to S3 (coming soon).
+Use `rake upload` to upload your site to S3.
 
 Only compress js and css when we're ready to upload the live site.
 
